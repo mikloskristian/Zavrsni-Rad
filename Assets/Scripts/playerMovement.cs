@@ -6,6 +6,10 @@ public class playerMovement : MonoBehaviour
 {
     [SerializeField] float moveXMulitply = 10.0f;
     [SerializeField] float moveYMultiply = 10.0f;
+    [SerializeField] float moveXSprint = 15.0f;
+    [SerializeField] float moveYSprint = 15.0f;
+    float moveXSpeed = 1.0f;
+    float moveYSpeed = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,26 +21,22 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         canMove();
-        canShoot();
+        if(Input.GetKeyDown(KeyCode.Space)){
+            StartCoroutine(handleSprint());
+        }
     }
 
     void canMove(){
-        float moveX = Input.GetAxis("Horizontal") * moveXMulitply * Time.deltaTime;
-        float moveY = Input.GetAxis("Vertical") * moveYMultiply * Time.deltaTime;
+        float moveX = Input.GetAxis("Horizontal") * moveXSpeed * moveXMulitply * Time.deltaTime;
+        float moveY = Input.GetAxis("Vertical") * moveYSpeed * moveYMultiply * Time.deltaTime;
         transform.Translate(moveX, moveY, 0);
-        
-        //ovo uklonit nakon sto napravim shooting
-        if(moveX < 0){
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else{
-            transform.localScale = new Vector2(1, 1);
-        }
     }
 
-    void canShoot(){
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
-            Debug.Log("Pucam!");
-        }
+    IEnumerator handleSprint() {
+        moveXMulitply = moveXSprint;
+        moveYMultiply = moveYSprint;
+        yield return new WaitForSeconds(0.3f);
+        moveXMulitply = 10.0f;
+        moveYMultiply = 10.0f;
     }
 }
