@@ -26,15 +26,12 @@ public class playerMovement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && canSprint){
             
             StartCoroutine(handleSprint());
-            Debug.Log("Jebem ti mater");
         }
     }
 
     void canMove(){
         float moveX = Input.GetAxis("Horizontal") * moveXSpeed * moveXMulitply * Time.deltaTime;
         float moveY = Input.GetAxis("Vertical") * moveYSpeed * moveYMultiply * Time.deltaTime;
-        Debug.Log(moveX);
-        Debug.Log(moveY);
         transform.Translate(moveX, moveY, 0);
     }
 
