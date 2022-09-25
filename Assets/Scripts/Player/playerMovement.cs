@@ -40,8 +40,8 @@ public class playerMovement : MonoBehaviour
         moveYMultiply = moveYSprint;
         myAnimator.SetBool("isRunning", true);
         yield return new WaitForSeconds(0.3f);
-        moveXMulitply = 10.0f;
-        moveYMultiply = 10.0f;
+        moveXMulitply = 6.0f;
+        moveYMultiply = 6.0f;
         myAnimator.SetBool("isRunning", false);
         canSprint = false;
         yield return new WaitForSeconds(2.0f);
