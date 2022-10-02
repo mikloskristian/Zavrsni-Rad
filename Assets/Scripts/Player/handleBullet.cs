@@ -18,14 +18,18 @@ public class handleBullet : MonoBehaviour
     }
 
     IEnumerator handleDestroy(){
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 
-    //private void OnTriggerEnter2D(Collider2D other){
-    //    if(other.tag == "Enemy"){
-    //        Debug.Log("Damaged!");
-//            Destroy(gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D other){
+        if(other.tag == "Enemy"){
+            Debug.Log("Unisten");
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+        else if(other.tag == "Wall"){
+            Destroy(gameObject);
+        }
+    }
 }
