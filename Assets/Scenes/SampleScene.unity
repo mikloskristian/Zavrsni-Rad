@@ -418,7 +418,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6ff2dea3abc714a9cccdd953e6f189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eSO: {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
+  eSO:
+  - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
+  - {fileID: 11400000, guid: 3bece5502f50c0c478f2de5deb08f087, type: 2}
+  - {fileID: 11400000, guid: 5e66026bca8e1b64084e10e1353d7205, type: 2}
+  - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
+  - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
+  - {fileID: 11400000, guid: 3bece5502f50c0c478f2de5deb08f087, type: 2}
 --- !u!1 &247894609
 GameObject:
   m_ObjectHideFlags: 0

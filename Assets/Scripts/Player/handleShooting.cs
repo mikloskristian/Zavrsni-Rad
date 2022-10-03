@@ -45,4 +45,7 @@ public class handleShooting : MonoBehaviour
         }
         
     }
+    public Vector2 getLookPos(){
+        return lookPos;
+    }
 }

@@ -10,6 +10,8 @@ public class playerMovement : MonoBehaviour
     [SerializeField] float moveYSprint = 15.0f;
     float moveXSpeed = 1.0f;
     float moveYSpeed = 1.0f;
+    float moveX;
+    float moveY;
     bool canSprint = true;
     Animator myAnimator;
 
@@ -30,19 +32,21 @@ public class playerMovement : MonoBehaviour
     }
 
     void canMove(){
-        float moveX = Input.GetAxis("Horizontal") * moveXSpeed * moveXMulitply * Time.deltaTime;
-        float moveY = Input.GetAxis("Vertical") * moveYSpeed * moveYMultiply * Time.deltaTime;
+        moveX = Input.GetAxis("Horizontal") * moveXSpeed * moveXMulitply * Time.deltaTime;
+        moveY = Input.GetAxis("Vertical") * moveYSpeed * moveYMultiply * Time.deltaTime;
         transform.Translate(moveX, moveY, 0);
     }
 
     IEnumerator handleSprint() {
         moveXMulitply = moveXSprint;
         moveYMultiply = moveYSprint;
-        myAnimator.SetBool("isRunning", true);
+        //particles start
+
         yield return new WaitForSeconds(0.3f);
         moveXMulitply = 6.0f;
         moveYMultiply = 6.0f;
-        myAnimator.SetBool("isRunning", false);
+        //particles end
+
         canSprint = false;
         yield return new WaitForSeconds(2.0f);
         canSprint = true;

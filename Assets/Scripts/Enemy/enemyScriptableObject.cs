@@ -11,6 +11,9 @@ public class enemyScriptableObject : ScriptableObject
     //[SerializeField] Animator animator;
     [SerializeField] float enemySpeed;
     //[SerializeField] bool isShooting;
+    //[SerializeField] float health;
+    //[SerializeField] float damage;
+    [SerializeField] float aiPathRadius;
 
     public Sprite getSprite(){
         return sprite;
@@ -21,4 +24,9 @@ public class enemyScriptableObject : ScriptableObject
     }
 
     //public bool getIsShooting() {}
+    //public bool getHealth() {}
+    //public bool getDamage() {}
+    public float getAIPathRadius(){
+        return aiPathRadius;
+    }
 }
