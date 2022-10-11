@@ -425,6 +425,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
   - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
   - {fileID: 11400000, guid: 3bece5502f50c0c478f2de5deb08f087, type: 2}
+  skullLogic: 0
 --- !u!1 &247894609
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,6 +5606,7 @@ MonoBehaviour:
   moveYMultiply: 6
   moveXSprint: 12
   moveYSprint: 12
+  playerHealth: 10
 --- !u!95 &1439381038
 Animator:
   serializedVersion: 4

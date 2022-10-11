@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class playerMovement : healathDamageScript
 {
-    [SerializeField] float moveXMulitply = 10.0f;
-    [SerializeField] float moveYMultiply = 10.0f;
-    [SerializeField] float moveXSprint = 15.0f;
-    [SerializeField] float moveYSprint = 15.0f;
+    [Header("Movement Parameters")]
+    [SerializeField] float moveXMulitply;
+    [SerializeField] float moveYMultiply;
+    [SerializeField] float moveXSprint;
+    [SerializeField] float moveYSprint;
+    [Header("Gameplay Parameters")]
+    [SerializeField] float playerHealth;
     float moveXSpeed = 1.0f;
     float moveYSpeed = 1.0f;
     float moveX;
@@ -15,7 +18,17 @@ public class playerMovement : MonoBehaviour
     bool canSprint = true;
     Animator myAnimator;
 
-    // Start is called before the first frame update
+    public override float health
+    {
+        get{return playerHealth;}
+        set{playerHealth = value;}
+    }
+    public override float damage 
+    {
+        get{return 0.0f;}
+        set{return;}
+    }
+
     void Start()
     {
         myAnimator = GetComponent<Animator>();
@@ -50,5 +63,9 @@ public class playerMovement : MonoBehaviour
         canSprint = false;
         yield return new WaitForSeconds(2.0f);
         canSprint = true;
+    }
+
+    public float getDamage(){
+        return damage;
     }
 }

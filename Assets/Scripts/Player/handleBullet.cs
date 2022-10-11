@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class handleBullet : MonoBehaviour
 {
-    [SerializeField] float bulletSpeed = 20.0f;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float bulletDamage;
+    playerMovement pm;
+
+    void Start(){
+        pm = gameObject.AddComponent<playerMovement>();
+    }
 
     void Update()
     {

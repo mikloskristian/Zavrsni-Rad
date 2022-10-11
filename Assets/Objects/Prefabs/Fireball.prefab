@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletDamage: 5
 --- !u!58 &3826245563601984775
 CircleCollider2D:
   m_ObjectHideFlags: 0
