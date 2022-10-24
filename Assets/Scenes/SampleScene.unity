@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 146697903}
   - component: {fileID: 146697902}
   - component: {fileID: 146697909}
+  - component: {fileID: 146697910}
   m_Layer: 6
   m_Name: Enemy Golem
   m_TagString: Enemy
@@ -302,7 +303,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.039946884, y: -0.06766987}
@@ -399,10 +400,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146697901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.82, y: 44.36, z: 0}
+  m_LocalPosition: {x: 5.4, y: -15.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 495512562}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -425,7 +427,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
   - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
   - {fileID: 11400000, guid: 3bece5502f50c0c478f2de5deb08f087, type: 2}
-  skullLogic: 0
+  rnd: 0
+--- !u!114 &146697910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146697901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4377b908cdb1442ab71f463f7b771f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  a: {fileID: 8217083622364393433, guid: 322844f624a26cf448c42c6499752727, type: 3}
+  pM: {fileID: 1439381037}
 --- !u!1 &247894609
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +643,76 @@ Transform:
   m_Father: {fileID: 2032986716}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &495512561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495512562}
+  - component: {fileID: 495512563}
+  - component: {fileID: 495512564}
+  m_Layer: 6
+  m_Name: Enemy Shooty shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &495512562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495512561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 146697908}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &495512563
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495512561}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!58 &495512564
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495512561}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.044038773, y: 0}
+  serializedVersion: 2
+  m_Radius: 8.532352
 --- !u!1 &504629051
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +875,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2372760bef29cde4293e17c1554cb011, type: 3}
   m_Name: 
@@ -5470,7 +5556,7 @@ GameObject:
   - component: {fileID: 1439381035}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5606,7 +5692,8 @@ MonoBehaviour:
   moveYMultiply: 6
   moveXSprint: 12
   moveYSprint: 12
-  playerHealth: 10
+  health: 20
+  damage: 0
 --- !u!95 &1439381038
 Animator:
   serializedVersion: 4

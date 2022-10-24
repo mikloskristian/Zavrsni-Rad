@@ -12,7 +12,7 @@ public class enemyScriptableObject : ScriptableObject
     [SerializeField] float enemySpeed;
     [SerializeField] float enemyHealth;
     [SerializeField] float enemyDamage;
-    //[SerializeField] bool isShooting;
+    [SerializeField] bool isShooting;
     [SerializeField] float aiPathRadius;
 
     public Sprite getSprite(){
@@ -23,7 +23,7 @@ public class enemyScriptableObject : ScriptableObject
         return enemySpeed;
     }
 
-    //public bool getIsShooting() {}
+    public bool getIsShooting() { return isShooting; }
     public float getAIPathRadius(){
         return aiPathRadius;
     }
