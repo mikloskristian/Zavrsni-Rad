@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IFightable
 {
-    void Attack (float damage, float health, GameObject bullet);
+    void Attack (float damage, ref float health, GameObject bullet);
 }

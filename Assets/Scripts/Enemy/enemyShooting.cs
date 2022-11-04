@@ -5,8 +5,9 @@ using UnityEngine;
 public class enemyShooting : MonoBehaviour
 {
     [SerializeField] GameObject a;
+    [SerializeField] handleShooting hS;
     [SerializeField] playerMovement pM;
-    float health;
+    [HideInInspector] public float health;
     float damage;
     bool isShooting;
     IFightable IFGround;
@@ -16,17 +17,19 @@ public class enemyShooting : MonoBehaviour
     void Start()
     {
         eG = GetComponent<enemyGetter>();
-        health = pM.health; //Player health
         damage = eG.eSO[eG.rnd].getEnemyDamage(); //Enemy damage
+        health = eG.eSO[eG.rnd].getEnemyHealth();
         isShooting = eG.eSO[eG.rnd].getIsShooting();
 
         IFGround = new groundUnit();
         IFShooting = new shootingUnit();
 
-        if(eG.rnd == 2)
-        {
-            IFShooting.Attack(damage, health, a);
-        }
+        Debug.Log(health);
+
+        //if(eG.rnd == 2)
+        //{
+        //    IFShooting.Attack(damage, health, a);
+        //}
     }
 
     void Update()
@@ -36,8 +39,12 @@ public class enemyShooting : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
-            IFGround.Attack(damage, health, a);
-            Debug.Log(health);
+            IFGround.Attack(damage, ref hS.health, a); 
+            if(hS.health <= 0){
+                pM.isAlive = false;
+                hS.enabled = false;
+                Debug.Log("Dead");
+            }
         }
     }
 }

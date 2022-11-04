@@ -441,7 +441,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: {fileID: 8217083622364393433, guid: 322844f624a26cf448c42c6499752727, type: 3}
+  hS: {fileID: 1714700621}
   pM: {fileID: 1439381037}
+  health: 0
 --- !u!1 &247894609
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,8 +5694,7 @@ MonoBehaviour:
   moveYMultiply: 6
   moveXSprint: 12
   moveYSprint: 12
-  health: 20
-  damage: 0
+  isAlive: 1
 --- !u!95 &1439381038
 Animator:
   serializedVersion: 4
@@ -72355,6 +72356,8 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   rb: {fileID: 1714700620}
   sr: {fileID: 1439381034}
+  health: 10
+  damage: 1
 --- !u!1 &1776718825
 GameObject:
   m_ObjectHideFlags: 0

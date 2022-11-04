@@ -8,9 +8,14 @@ public class handleShooting : MonoBehaviour
     [SerializeField] GameObject fireball;
     [SerializeField] GameObject player;
     [SerializeField] Camera cam;
+
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer sr;
+
+    [Header("Health and Damage")]
+    [SerializeField] public float health;
+    [SerializeField] public float damage;
 
     Vector2 mouseCoords;
     Vector2 lookPos;
@@ -44,8 +49,5 @@ public class handleShooting : MonoBehaviour
             GameObject bullet = Instantiate(fireball, player.transform.localPosition, transform.localRotation);
         }
         
-    }
-    public Vector2 getLookPos(){
-        return lookPos;
     }
 }

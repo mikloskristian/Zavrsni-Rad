@@ -5,11 +5,15 @@ using UnityEngine;
 public class handleBullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
-    [SerializeField] float bulletDamage;
-    playerMovement pm;
+    GameObject player;
+    float bulletDamage;
+    enemyShooting eS;
 
     void Start(){
-        pm = gameObject.AddComponent<playerMovement>();
+        player = GameObject.FindWithTag("Player");
+        //Debug.Log("Player damage:" + damage);
+        //hS = gameObject.AddComponent<handleShooting>() as handleShooting;
+        //Debug.Log(hS.damage);
     }
 
     void Update()
@@ -30,12 +34,22 @@ public class handleBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Enemy"){
-            Debug.Log("Unisten");
-            Destroy(other.gameObject);
+            ref float enemyHealth = ref other.gameObject.GetComponent<enemyShooting>().health;
+            bulletDamage = player.GetComponentInChildren<handleShooting>().damage;
+            enemyHealth -= bulletDamage;
+            Debug.Log(enemyHealth);
+            if(enemyHealth <= 0){
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
         else if(other.tag == "Wall"){
             Destroy(gameObject);
         }
+    }
+
+    void playerAttack(float damage, ref float health){
+        health -= damage;
+        Debug.Log(health);
     }
 }

@@ -9,29 +9,34 @@ public class playerMovement : MonoBehaviour
     [SerializeField] float moveYMultiply;
     [SerializeField] float moveXSprint;
     [SerializeField] float moveYSprint;
-    
-    [Header("Health and Damage")]
-    [SerializeField] public float health;
-    [SerializeField] float damage;
+    [HideInInspector] public bool isAlive = true;
     float moveXSpeed = 1.0f;
     float moveYSpeed = 1.0f;
     float moveX;
     float moveY;
     bool canSprint = true;
+    BoxCollider2D b2D;
+    
     Animator myAnimator;
 
     void Start()
     {
         myAnimator = GetComponent<Animator>();
+        b2D = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        canMove();
-        if(Input.GetKeyDown(KeyCode.Space) && canSprint){
+        if(isAlive){
+            canMove();
+            if(Input.GetKeyDown(KeyCode.Space) && canSprint){
             
-            StartCoroutine(handleSprint());
+                StartCoroutine(handleSprint());
+            }
+        }
+        else{
+            myAnimator.Play("playerDeath");
         }
     }
 
@@ -55,4 +60,5 @@ public class playerMovement : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         canSprint = true;
     }
+    
 }
