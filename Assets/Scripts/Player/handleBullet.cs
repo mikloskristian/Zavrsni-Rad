@@ -11,9 +11,6 @@ public class handleBullet : MonoBehaviour
 
     void Start(){
         player = GameObject.FindWithTag("Player");
-        //Debug.Log("Player damage:" + damage);
-        //hS = gameObject.AddComponent<handleShooting>() as handleShooting;
-        //Debug.Log(hS.damage);
     }
 
     void Update()
@@ -50,6 +47,5 @@ public class handleBullet : MonoBehaviour
 
     void playerAttack(float damage, ref float health){
         health -= damage;
-        Debug.Log(health);
     }
 }

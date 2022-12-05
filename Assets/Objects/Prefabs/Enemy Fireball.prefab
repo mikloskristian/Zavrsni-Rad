@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 9061983870384047895}
   - component: {fileID: 7431721756580407242}
-  - component: {fileID: 7747787459231373988}
   - component: {fileID: 3826245563601984775}
   - component: {fileID: 3841226322188165763}
+  - component: {fileID: -2733376819782978653}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: Enemy Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 740b530d5b261d947aac6da39d1589c8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.514151, b: 0.514151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7747787459231373988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8217083622364393433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b6acb02c89448438d1ab2de2e73506, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 20
 --- !u!58 &3826245563601984775
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +123,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2733376819782978653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217083622364393433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e367fd28bddb2d546b1980ec32ed3984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 20

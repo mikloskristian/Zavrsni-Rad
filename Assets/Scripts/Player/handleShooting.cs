@@ -19,16 +19,20 @@ public class handleShooting : MonoBehaviour
 
     Vector2 mouseCoords;
     Vector2 lookPos;
+    playerMovement pM;
+    handleShooting hS;
 
     void Start()
     {
-
+        pM = GetComponentInParent<playerMovement>();
+        hS = GetComponent<handleShooting>();
     }
 
     void Update()
     {
         handleMouseRotation();
         handleShoot();
+        handleDeath();
     }
 
     void handleMouseRotation(){
@@ -48,6 +52,13 @@ public class handleShooting : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0)){
             GameObject bullet = Instantiate(fireball, player.transform.localPosition, transform.localRotation);
         }
-        
+    }
+    void handleDeath()
+    {
+        if(health <= 0){
+                pM.isAlive = false;
+                hS.enabled = false;
+                Debug.Log("Dead");
+            }
     }
 }

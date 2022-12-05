@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 146697909}
   - component: {fileID: 146697910}
   m_Layer: 6
-  m_Name: Enemy Golem
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146697901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4, y: -15.4, z: 0}
+  m_LocalPosition: {x: -472, y: 970, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -444,6 +444,7 @@ MonoBehaviour:
   hS: {fileID: 1714700621}
   pM: {fileID: 1439381037}
   health: 0
+  damage: 0
 --- !u!1 &247894609
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +657,7 @@ GameObject:
   - component: {fileID: 495512562}
   - component: {fileID: 495512563}
   - component: {fileID: 495512564}
+  - component: {fileID: 495512565}
   m_Layer: 6
   m_Name: Enemy Shooty shoot
   m_TagString: Untagged
@@ -670,7 +672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495512561}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -686,7 +688,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495512561}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -706,15 +708,29 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495512561}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.044038773, y: 0}
+  m_Offset: {x: 0.060453415, y: 0.0048007965}
   serializedVersion: 2
-  m_Radius: 8.532352
+  m_Radius: 10
+--- !u!114 &495512565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495512561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4951a522b3d0d4f81f7e478c1ed84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8217083622364393433, guid: 232c6870820add0418de549a9ed7b59d, type: 3}
+  enemy: {fileID: 146697901}
 --- !u!1 &504629051
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.7, y: -15.8, z: -10}
+  m_LocalPosition: {x: 45.3, y: -22.96, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -877,7 +893,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2372760bef29cde4293e17c1554cb011, type: 3}
   m_Name: 
@@ -4914,7 +4930,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035093947}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.7, y: -15.8, z: -10}
+  m_LocalPosition: {x: 45.3, y: -22.96, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5571,7 +5587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439381032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.7, y: -15.8, z: 0}
+  m_LocalPosition: {x: 45.3, y: -22.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -72356,7 +72372,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   rb: {fileID: 1714700620}
   sr: {fileID: 1439381034}
-  health: 10
+  health: 1e+19
   damage: 1
 --- !u!1 &1776718825
 GameObject:

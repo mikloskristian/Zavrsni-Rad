@@ -8,6 +8,7 @@ public class enemyGetter : MonoBehaviour
     public enemyScriptableObject[] eSO;
     SpriteRenderer sr;
     AIPath p;
+    //enemyShooting eS;
     [HideInInspector] public int rnd;
 
 
@@ -17,6 +18,7 @@ public class enemyGetter : MonoBehaviour
 
         sr = GetComponent<SpriteRenderer>();
         p = GetComponent<AIPath>();
+        
 
         Sprite sprite = eSO[rnd].getSprite();
         float newSpeed = eSO[rnd].getEnemySpeed();
@@ -34,12 +36,12 @@ public class enemyGetter : MonoBehaviour
     {
         if(p.desiredVelocity.x >= 0.01f)
         {
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            sr.flipX = false;
         }
 
-        else if (p.desiredVelocity.x <= 0.01f)
+        else if (p.desiredVelocity.x <= -0.01f)
         {
-            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            sr.flipX = true;
         }
     }
 }

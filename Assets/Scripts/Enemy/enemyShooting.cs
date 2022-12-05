@@ -8,43 +8,40 @@ public class enemyShooting : MonoBehaviour
     [SerializeField] handleShooting hS;
     [SerializeField] playerMovement pM;
     [HideInInspector] public float health;
-    float damage;
+    [HideInInspector] public float damage;
     bool isShooting;
-    IFightable IFGround;
-    IFightable IFShooting;
+    IFightable Fightable;
     enemyGetter eG;
+    CircleCollider2D cC;
     
     void Start()
     {
         eG = GetComponent<enemyGetter>();
+        cC = GetComponentInChildren<CircleCollider2D>();
+
         damage = eG.eSO[eG.rnd].getEnemyDamage(); //Enemy damage
         health = eG.eSO[eG.rnd].getEnemyHealth();
         isShooting = eG.eSO[eG.rnd].getIsShooting();
 
-        IFGround = new groundUnit();
-        IFShooting = new shootingUnit();
+        cC.enabled = false;
 
-        Debug.Log(health);
 
-        //if(eG.rnd == 2)
-        //{
-        //    IFShooting.Attack(damage, health, a);
-        //}
+        if(eG.rnd == 2)
+        {
+            IFightable Shoot = new shootingUnit();
+            Shoot.Attack(damage, ref hS.health, cC);
+        }
     }
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
-            IFGround.Attack(damage, ref hS.health, a); 
-            if(hS.health <= 0){
-                pM.isAlive = false;
-                hS.enabled = false;
-                Debug.Log("Dead");
-            }
+            Fightable = new groundUnit();
+            Fightable.Attack(damage, ref hS.health, cC); 
         }
     }
 }
