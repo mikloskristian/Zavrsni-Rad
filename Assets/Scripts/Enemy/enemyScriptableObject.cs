@@ -8,22 +8,22 @@ public class enemyScriptableObject : ScriptableObject
 {
 
     [SerializeField] Sprite sprite;
-    //[SerializeField] Animator animator;
     [SerializeField] float enemySpeed;
     [SerializeField] float enemyHealth;
     [SerializeField] float enemyDamage;
     [SerializeField] bool isShooting;
     [SerializeField] float aiPathRadius;
+    [SerializeField] int enemyScore;
 
     public Sprite getSprite(){
         return sprite;
     }
-    //public float getAnimator() {}
     public float getEnemySpeed(){
         return enemySpeed;
     }
-
-    public bool getIsShooting() { return isShooting; }
+    public bool getIsShooting() { 
+        return isShooting; 
+    }
     public float getAIPathRadius(){
         return aiPathRadius;
     }
@@ -32,5 +32,8 @@ public class enemyScriptableObject : ScriptableObject
     }
     public float getEnemyDamage(){
         return enemyDamage;
+    }
+    public int getEnemyScore(){
+        return enemyScore;
     }
 }

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class handleBullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
+    [SerializeField] private TMP_Text ScoreText;
     GameObject player;
     float bulletDamage;
     enemyShooting eS;
 
     void Start(){
         player = GameObject.FindWithTag("Player");
+        ScoreText = GameObject.FindObjectOfType<TMP_Text>();
     }
 
     void Update()
@@ -34,9 +37,9 @@ public class handleBullet : MonoBehaviour
             ref float enemyHealth = ref other.gameObject.GetComponent<enemyShooting>().health;
             bulletDamage = player.GetComponentInChildren<handleShooting>().damage;
             enemyHealth -= bulletDamage;
-            Debug.Log(enemyHealth);
             if(enemyHealth <= 0){
                 Destroy(other.gameObject);
+                ScoreManager.Instance.AddScore(other.gameObject.GetComponent<enemyShooting>().score, ScoreText);
             }
             Destroy(gameObject);
         }

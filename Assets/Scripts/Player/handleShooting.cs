@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class handleShooting : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class handleShooting : MonoBehaviour
     [SerializeField] GameObject fireball;
     [SerializeField] GameObject player;
     [SerializeField] Camera cam;
+    [SerializeField] private Slider HealthSlider;
 
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
@@ -26,6 +28,7 @@ public class handleShooting : MonoBehaviour
     {
         pM = GetComponentInParent<playerMovement>();
         hS = GetComponent<handleShooting>();
+        HealthManager.Instance.SetStartingHealth(health, HealthSlider);
     }
 
     void Update()

@@ -8,7 +8,6 @@ public class enemyGetter : MonoBehaviour
     public enemyScriptableObject[] eSO;
     SpriteRenderer sr;
     AIPath p;
-    //enemyShooting eS;
     [HideInInspector] public int rnd;
 
 
@@ -19,11 +18,9 @@ public class enemyGetter : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         p = GetComponent<AIPath>();
         
-
         Sprite sprite = eSO[rnd].getSprite();
         float newSpeed = eSO[rnd].getEnemySpeed();
         float radius = eSO[rnd].getAIPathRadius();
-
 
         sr.sprite = sprite;
         p.maxSpeed = newSpeed;

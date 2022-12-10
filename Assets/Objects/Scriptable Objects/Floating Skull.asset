@@ -18,3 +18,4 @@ MonoBehaviour:
   enemyDamage: 2
   isShooting: 1
   aiPathRadius: 5
+  enemyScore: 10

@@ -9,6 +9,7 @@ public class enemyShooting : MonoBehaviour
     [SerializeField] playerMovement pM;
     [HideInInspector] public float health;
     [HideInInspector] public float damage;
+    [HideInInspector] public int score;
     bool isShooting;
     IFightable Fightable;
     enemyGetter eG;
@@ -21,6 +22,7 @@ public class enemyShooting : MonoBehaviour
 
         damage = eG.eSO[eG.rnd].getEnemyDamage(); //Enemy damage
         health = eG.eSO[eG.rnd].getEnemyHealth();
+        score = eG.eSO[eG.rnd].getEnemyScore();
         isShooting = eG.eSO[eG.rnd].getIsShooting();
 
         cC.enabled = false;
