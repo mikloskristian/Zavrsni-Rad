@@ -5,35 +5,40 @@ using UnityEngine;
 public class enemyBulletDamage : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
+    [SerializeField] public EnemyDamage enemyDamage;
+    IObserver playerhealthVariable;
     GameObject enemy;
     float bulletDamage;
+    bool yes;
     enemyShooting eS;
-
-    void Start(){
+    private void Start(){
         enemy = GameObject.FindWithTag("Enemy");
+        enemyDamage = new EnemyDamage();
+        enemyDamage.Add(playerhealthVariable);
     }
 
-    void Update()
+    private void Update()
     {
         handleSpeed();
         StartCoroutine(handleDestroy());
     }
 
-    void handleSpeed(){
+    private void handleSpeed(){
         Vector2 bulletTrajectory = new Vector2(bulletSpeed * Time.deltaTime, 0.0f);
         transform.Translate(bulletTrajectory);
     }
 
-    IEnumerator handleDestroy(){
+    private IEnumerator handleDestroy(){
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Player"){
-            ref float playerHealth = ref other.gameObject.GetComponentInChildren<handleShooting>().health;
-            bulletDamage = enemy.GetComponent<enemyShooting>().damage;
-            playerHealth -= bulletDamage;
+            //ref float playerHealth = ref other.gameObject.GetComponentInChildren<handleShooting>().health;
+            //bulletDamage = enemy.GetComponent<enemyShooting>().damage;
+            //playerHealth -= bulletDamage;
+            enemyDamage.Notify();
             Destroy(gameObject);
         }
         else if(other.tag == "Wall"){

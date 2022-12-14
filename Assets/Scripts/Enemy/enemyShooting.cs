@@ -25,13 +25,13 @@ public class enemyShooting : MonoBehaviour
         score = eG.eSO[eG.rnd].getEnemyScore();
         isShooting = eG.eSO[eG.rnd].getIsShooting();
 
-        cC.enabled = false;
+        //cC.enabled = false;
 
 
         if(eG.rnd == 2)
         {
             IFightable Shoot = new shootingUnit();
-            Shoot.Attack(damage, ref hS.health, cC);
+            //Shoot.Attack(damage, ref hS.health, cC);
         }
     }
 
@@ -43,7 +43,8 @@ public class enemyShooting : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
             Fightable = new groundUnit();
-            Fightable.Attack(damage, ref hS.health, cC); 
+            Debug.Log("radi");
+            //Fightable.Attack(damage, ref hS.health, cC); 
         }
     }
 }

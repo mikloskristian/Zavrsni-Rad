@@ -72901,7 +72901,6 @@ MonoBehaviour:
   HealthSlider: {fileID: 0}
   rb: {fileID: 1714700620}
   sr: {fileID: 1439381034}
-  health: 10
   damage: 1
 --- !u!1 &1776718825
 GameObject:

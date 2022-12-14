@@ -15,8 +15,7 @@ public class handleShooting : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] SpriteRenderer sr;
 
-    [Header("Health and Damage")]
-    [SerializeField] public float health;
+    [Header("Damage")]
     [SerializeField] public float damage;
 
     Vector2 mouseCoords;
@@ -28,14 +27,12 @@ public class handleShooting : MonoBehaviour
     {
         pM = GetComponentInParent<playerMovement>();
         hS = GetComponent<handleShooting>();
-        HealthManager.Instance.SetStartingHealth(health, HealthSlider);
     }
 
     void Update()
     {
         handleMouseRotation();
         handleShoot();
-        handleDeath();
     }
 
     void handleMouseRotation(){
@@ -56,12 +53,5 @@ public class handleShooting : MonoBehaviour
             GameObject bullet = Instantiate(fireball, player.transform.localPosition, transform.localRotation);
         }
     }
-    void handleDeath()
-    {
-        if(health <= 0){
-                pM.isAlive = false;
-                hS.enabled = false;
-                Debug.Log("Dead");
-            }
-    }
+    
 }
