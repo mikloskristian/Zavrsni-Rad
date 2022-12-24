@@ -5,7 +5,6 @@ using UnityEngine;
 public class enemyBulletDamage : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
-    [SerializeField] public EnemyDamage enemyDamage;
     IObserver playerhealthVariable;
     GameObject enemy;
     float bulletDamage;
@@ -13,8 +12,6 @@ public class enemyBulletDamage : MonoBehaviour
     enemyShooting eS;
     private void Start(){
         enemy = GameObject.FindWithTag("Enemy");
-        enemyDamage = new EnemyDamage();
-        enemyDamage.Add(playerhealthVariable);
     }
 
     private void Update()
@@ -38,7 +35,6 @@ public class enemyBulletDamage : MonoBehaviour
             //ref float playerHealth = ref other.gameObject.GetComponentInChildren<handleShooting>().health;
             //bulletDamage = enemy.GetComponent<enemyShooting>().damage;
             //playerHealth -= bulletDamage;
-            enemyDamage.Notify();
             Destroy(gameObject);
         }
         else if(other.tag == "Wall"){

@@ -12,27 +12,25 @@ public class enemyShooting : MonoBehaviour
     [HideInInspector] public int score;
     bool isShooting;
     IFightable Fightable;
-    enemyGetter eG;
     CircleCollider2D cC;
     
     void Start()
     {
-        eG = GetComponent<enemyGetter>();
         cC = GetComponentInChildren<CircleCollider2D>();
 
-        damage = eG.eSO[eG.rnd].getEnemyDamage(); //Enemy damage
-        health = eG.eSO[eG.rnd].getEnemyHealth();
-        score = eG.eSO[eG.rnd].getEnemyScore();
-        isShooting = eG.eSO[eG.rnd].getIsShooting();
+        //damage = eG.eSO[eG.rnd].getEnemyDamage(); //Enemy damage
+        //health = eG.eSO[eG.rnd].getEnemyHealth();
+        //score = eG.eSO[eG.rnd].getEnemyScore();
+        //isShooting = eG.eSO[eG.rnd].getIsShooting();
 
         //cC.enabled = false;
 
 
-        if(eG.rnd == 2)
-        {
-            IFightable Shoot = new shootingUnit();
+        //if(eG.rnd == 2)
+        //{
+        //    IFightable Shoot = new shootingUnit();
             //Shoot.Attack(damage, ref hS.health, cC);
-        }
+        //}
     }
 
     void Update()

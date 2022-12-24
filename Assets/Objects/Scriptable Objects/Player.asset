@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20f8ccb3dba05c045903f4d8370c18d8, type: 3}
-  m_Name: Golem
+  m_Name: Player
   m_EditorClassIdentifier: 
-  Sprite: {fileID: -4841409092833791354, guid: 59a77fadbba25d14b813a011915c102b, type: 3}
-  AnimatorController: {fileID: 0}
-  Speed: 3
+  Sprite: {fileID: 4723107735738678597, guid: 3a56f0ec8a910874b8cbba7e9d4814b0, type: 3}
+  AnimatorController: {fileID: 9100000, guid: 3fd5f54ca7e356345aeaf5837cd8e8d7, type: 2}
+  Speed: 0
   Health: 0
   Damage: 0
   IsShooting: 0
-  AIPathRadius: 1
+  AIPathRadius: 0
   Score: 0

@@ -194,14 +194,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 146697908}
+  - component: {fileID: 146697910}
+  - component: {fileID: 146697911}
+  - component: {fileID: 146697913}
+  - component: {fileID: 146697914}
   - component: {fileID: 146697907}
+  - component: {fileID: 146697912}
   - component: {fileID: 146697906}
   - component: {fileID: 146697905}
   - component: {fileID: 146697904}
   - component: {fileID: 146697903}
   - component: {fileID: 146697902}
-  - component: {fileID: 146697909}
-  - component: {fileID: 146697910}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -408,26 +411,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &146697909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146697901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6ff2dea3abc714a9cccdd953e6f189, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eSO:
-  - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
-  - {fileID: 11400000, guid: 3bece5502f50c0c478f2de5deb08f087, type: 2}
-  - {fileID: 11400000, guid: 5e66026bca8e1b64084e10e1353d7205, type: 2}
-  - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
-  - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
-  - {fileID: 11400000, guid: 3bece5502f50c0c478f2de5deb08f087, type: 2}
-  rnd: 0
 --- !u!114 &146697910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +429,70 @@ MonoBehaviour:
   health: 0
   damage: 0
   score: 0
+--- !u!114 &146697911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146697901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09a295a22b79514d9609d1c0cd50009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+--- !u!95 &146697912
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146697901}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &146697913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146697901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8bef0bbfb4a3a4eb51b9f8f20374af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ESO:
+  - {fileID: 11400000, guid: 6cbd1a74f2cca3e45a59649d2f8263d0, type: 2}
+  Sprite: {fileID: 0}
+  Animator: {fileID: 0}
+  rnd: 0
+--- !u!114 &146697914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146697901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f77a93b2946e6843915cfe7a51c4f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: {fileID: 0}
+  IsShooting: 0
 --- !u!1 &168087184
 GameObject:
   m_ObjectHideFlags: 0
@@ -5958,9 +6005,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1439381033}
+  - component: {fileID: 1439381040}
+  - component: {fileID: 1439381039}
+  - component: {fileID: 1439381037}
+  - component: {fileID: 1439381041}
   - component: {fileID: 1439381034}
   - component: {fileID: 1439381038}
-  - component: {fileID: 1439381037}
   - component: {fileID: 1439381036}
   - component: {fileID: 1439381035}
   m_Layer: 7
@@ -6027,7 +6077,7 @@ SpriteRenderer:
   m_SortingLayerID: 1460361031
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 3a56f0ec8a910874b8cbba7e9d4814b0, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6035,7 +6085,7 @@ SpriteRenderer:
   m_Size: {x: 4.6875, y: 4.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1439381035
@@ -6112,7 +6162,7 @@ Animator:
   m_GameObject: {fileID: 1439381032}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3fd5f54ca7e356345aeaf5837cd8e8d7, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6122,6 +6172,63 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1439381039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439381032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b52087ad208543428f07e62c8dbf467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DE:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 146697901}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1439381040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439381032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f19323e961a6bd4db6ef036170fce1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+--- !u!114 &1439381041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439381032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8bef0bbfb4a3a4eb51b9f8f20374af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ESO:
+  - {fileID: 11400000, guid: d2fbcfd87a2e1e2429fa6fb4b2c7f1a7, type: 2}
+  Sprite: {fileID: 0}
+  Animator: {fileID: 0}
+  rnd: 0
 --- !u!1 &1449602350
 GameObject:
   m_ObjectHideFlags: 0
