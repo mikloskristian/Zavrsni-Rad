@@ -20,12 +20,12 @@ public class handleShooting : MonoBehaviour
 
     Vector2 mouseCoords;
     Vector2 lookPos;
-    playerMovement pM;
+    //playerMovement pM;
     handleShooting hS;
 
     void Start()
     {
-        pM = GetComponentInParent<playerMovement>();
+        //pM = GetComponentInParent<playerMovement>();
         hS = GetComponent<handleShooting>();
     }
 
@@ -36,10 +36,10 @@ public class handleShooting : MonoBehaviour
     }
 
     void handleMouseRotation(){
-        mouseCoords = cam.ScreenToWorldPoint(Input.mousePosition);
-        lookPos = mouseCoords - rb.position;
-        float lookAngle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
-        rb.rotation = lookAngle;
+        //mouseCoords = cam.ScreenToWorldPoint(Input.mousePosition);
+        //lookPos = mouseCoords - rb.position;
+        //float lookAngle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
+        //rb.rotation = lookAngle;
 
         if (lookPos.x > 0){
             sr.flipX = false;
@@ -49,9 +49,9 @@ public class handleShooting : MonoBehaviour
         }
     }
     void handleShoot() {
-        if(Input.GetKeyDown(KeyCode.Mouse0)){
-            GameObject bullet = Instantiate(fireball, player.transform.localPosition, transform.localRotation);
-        }
+        //if(Input.GetKeyDown(KeyCode.Mouse0)){
+        //    GameObject bullet = Instantiate(fireball, player.transform.localPosition, transform.localRotation);
+        //}
     }
     
 }

@@ -6,7 +6,6 @@ public class enemyShooting : MonoBehaviour
 {
     [SerializeField] GameObject a;
     [SerializeField] handleShooting hS;
-    [SerializeField] playerMovement pM;
     [HideInInspector] public float health;
     [HideInInspector] public float damage;
     [HideInInspector] public int score;

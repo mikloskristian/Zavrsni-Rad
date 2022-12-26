@@ -6,7 +6,14 @@ using UnityEngine.Events;
 public class TriggerEnter : MonoBehaviour
 {
     public DamageEvent DE;
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void Start() 
+    {
+        if (DE == null){
+            DE = new DamageEvent();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         Damage dmg = other.GetComponent<Damage>();
         if(!dmg) return;
         DE.Invoke(dmg);
