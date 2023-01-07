@@ -35,7 +35,7 @@ public class handleBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Enemy"){
             ref float enemyHealth = ref other.gameObject.GetComponent<enemyShooting>().health;
-            bulletDamage = player.GetComponentInChildren<handleShooting>().damage;
+            //bulletDamage = player.GetComponentInChildren<handleShooting>().damage;
             enemyHealth -= bulletDamage;
             if(enemyHealth <= 0){
                 Destroy(other.gameObject);

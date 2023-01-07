@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class PCInput : MonoBehaviour
 {
-    [SerializeField] public EntityScriptableObject[] ESO;
     [SerializeField] private Camera _camera;
     public InputEvent IE;
     private float _moveX;

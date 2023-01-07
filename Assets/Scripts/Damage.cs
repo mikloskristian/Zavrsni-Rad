@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    
-    [HideInInspector] public float damage = 10.0f;
+    [SerializeField] private EntityScriptableObject[] _eso; 
+    [HideInInspector] public float damage;
 
     private void Start() {
-        
-        
+        int rnd = Random.Range(0, _eso.Length);
+        this.damage = _eso[rnd].getDamage();
     }
 }

@@ -7,15 +7,15 @@ public class EnemyBehaviourGetter : MonoBehaviour
 {
     [HideInInspector] public AIPath Path;
     [HideInInspector] public bool IsShooting;
-    private SpriteGetter _sg;
+    [SerializeField] private EntityScriptableObject[] _eso;
     void Start()
     {
-        _sg = GetComponent<SpriteGetter>();
+        int rnd = Random.Range(0, _eso.Length);
         Path = GetComponent<AIPath>();
 
-        Path.maxSpeed = _sg.ESO[_sg.rnd].getSpeed();
-        Path.radius = _sg.ESO[_sg.rnd].getAIPathRadius();
-        IsShooting = _sg.ESO[_sg.rnd].getIsShooting();
+        this.Path.maxSpeed = _eso[rnd].getSpeed();
+        this.Path.radius = _eso[rnd].getAIPathRadius();
+        this.IsShooting = _eso[rnd].getIsShooting();
 
     }
 

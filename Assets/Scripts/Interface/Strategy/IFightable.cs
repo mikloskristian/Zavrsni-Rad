@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IFightable
 {
-    void Attack (float damage, ref float health, CircleCollider2D cc);
+    void Attack (ShootingBehaviour SB);
 }

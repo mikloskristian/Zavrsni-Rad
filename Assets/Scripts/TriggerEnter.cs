@@ -15,7 +15,7 @@ public class TriggerEnter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         Damage dmg = other.GetComponent<Damage>();
-        if(!dmg) return;
+        if(!dmg || gameObject.tag == other.gameObject.tag) return;
         DE.Invoke(dmg);
     }
 }

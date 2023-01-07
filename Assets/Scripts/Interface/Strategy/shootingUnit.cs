@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class shootingUnit : IFightable
 {
-    public void Attack(float damage, ref float health, CircleCollider2D cc)
+    public void Attack(ShootingBehaviour SB)
     {
-        cc.enabled = true;
+        SB.enabled = true;
     }
 }

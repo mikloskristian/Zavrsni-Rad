@@ -6,18 +6,18 @@ using UnityEditor;
 
 public class SpriteGetter : MonoBehaviour
 {
-    [SerializeField] public EntityScriptableObject[] ESO;
+    [SerializeField] private EntityScriptableObject[] _eso;
     [HideInInspector] public SpriteRenderer Sprite;
     [HideInInspector] public Animator Animator;
     [HideInInspector] public int rnd;
     void Start()
     {
-        rnd = Random.Range(0, ESO.Length);
+        int rnd = Random.Range(0, _eso.Length);
         this.Sprite = GetComponent<SpriteRenderer>();
         this.Animator = GetComponent<Animator>();
 
-        this.Sprite.sprite = ESO[rnd].getSprite();
-        this.Animator.runtimeAnimatorController = ESO[rnd].getAnimatorController();
+        Sprite.sprite = _eso[rnd].getSprite();
+        Animator.runtimeAnimatorController = _eso[rnd].getAnimatorController();
     }
 
     void Update()

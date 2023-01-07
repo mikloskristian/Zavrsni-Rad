@@ -5,7 +5,6 @@ using UnityEngine;
 public class enemyShooting : MonoBehaviour
 {
     [SerializeField] GameObject a;
-    [SerializeField] handleShooting hS;
     [HideInInspector] public float health;
     [HideInInspector] public float damage;
     [HideInInspector] public int score;

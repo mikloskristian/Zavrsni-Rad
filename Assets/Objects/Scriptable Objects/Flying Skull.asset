@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20f8ccb3dba05c045903f4d8370c18d8, type: 3}
-  m_Name: Player
+  m_Name: Flying Skull
   m_EditorClassIdentifier: 
-  Sprite: {fileID: -7385789195546760866, guid: 3a56f0ec8a910874b8cbba7e9d4814b0, type: 3}
-  AnimatorController: {fileID: 9100000, guid: 3fd5f54ca7e356345aeaf5837cd8e8d7, type: 2}
-  Speed: 5
-  Health: 10
-  Damage: 1
+  Sprite: {fileID: -1637492292, guid: 080e92f4d75837f45bd1ef6c8e3d12d1, type: 3}
+  AnimatorController: {fileID: 0}
+  Speed: 4
+  Health: 2
+  Damage: 3
   IsShooting: 0
   AIPathRadius: 0
   Score: 0
