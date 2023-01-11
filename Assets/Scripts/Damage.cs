@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    [SerializeField] private EntityScriptableObject[] _eso; 
     [HideInInspector] public float damage;
+    private ScriptableObjectLoader _sol;
 
     private void Start() {
-        int rnd = Random.Range(0, _eso.Length);
-        this.damage = _eso[rnd].getDamage();
+        _sol = GetComponent<ScriptableObjectLoader>();
+
+        this.damage = _sol.Damage;
     }
 }

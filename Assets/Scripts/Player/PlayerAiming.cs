@@ -19,7 +19,7 @@ public class PlayerAiming : MonoBehaviour
         PCI.IE.AddListener(handleLook);
         PCI.IE.AddListener(handleShoot);
 
-        _shootingAim = GameObject.Find("Shooty shoot");
+        _shootingAim = GameObject.Find("Player Shooting Rotation");
         
         _rb = _shootingAim.GetComponent<Rigidbody2D>();
         _sr = GetComponent<SpriteRenderer>();

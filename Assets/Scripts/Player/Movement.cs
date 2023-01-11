@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private EntityScriptableObject _eso;
-    PCInput PCI;
+    private ScriptableObjectLoader _sol;
+    private PCInput _pci;
     private float _moveHoritontal;
     private float _moveVertical;
     private float _speed;
@@ -13,14 +13,15 @@ public class Movement : MonoBehaviour
     void Start()
     {
         this._sr = GetComponent<SpriteRenderer>();
+        this._sol = GetComponent<ScriptableObjectLoader>();
 
-        if (PCI == null)
+        if (_pci == null)
         {
-            PCI = GetComponent<PCInput>();
+            _pci = GetComponent<PCInput>();
         }
-        PCI.IE.AddListener(handleMovement);
+        _pci.IE.AddListener(handleMovement);
 
-        this._speed = _eso.getSpeed();
+        this._speed = _sol.Speed;
     }
 
     private void handleMovement(InputEventArgs IEA)

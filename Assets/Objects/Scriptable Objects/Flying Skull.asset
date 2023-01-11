@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f8ccb3dba05c045903f4d8370c18d8, type: 3}
   m_Name: Flying Skull
   m_EditorClassIdentifier: 
-  Sprite: {fileID: -1637492292, guid: 080e92f4d75837f45bd1ef6c8e3d12d1, type: 3}
-  AnimatorController: {fileID: 0}
-  Speed: 4
   Health: 2
   Damage: 3
-  IsShooting: 0
-  AIPathRadius: 0
+  Speed: 4
+  AIPathRadius: 2
   Score: 0
+  IsShootableType: 1
+  Sprite: {fileID: -1637492292, guid: 080e92f4d75837f45bd1ef6c8e3d12d1, type: 3}
+  AnimatorController: {fileID: 0}

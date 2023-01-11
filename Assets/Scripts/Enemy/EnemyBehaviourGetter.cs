@@ -5,23 +5,26 @@ using Pathfinding;
 
 public class EnemyBehaviourGetter : MonoBehaviour
 {
-    [HideInInspector] public AIPath Path;
-    [HideInInspector] public bool IsShooting;
-    [SerializeField] private EntityScriptableObject[] _eso;
+    private AIPath _path;
+    private bool _isShootableType;
+    private ScriptableObjectLoader _sol;
+    private ShootingBehaviour _sb;
     void Start()
     {
-        int rnd = Random.Range(0, _eso.Length);
-        Path = GetComponent<AIPath>();
+        _path = GetComponent<AIPath>();
+        _sol = GetComponent<ScriptableObjectLoader>();
+        _sb = GetComponent<ShootingBehaviour>();
 
-        this.Path.maxSpeed = _eso[rnd].getSpeed();
-        this.Path.radius = _eso[rnd].getAIPathRadius();
-        this.IsShooting = _eso[rnd].getIsShooting();
 
-    }
+        this._sb.enabled = false;
+        this._path.maxSpeed = _sol.Speed;
+        this._path.radius = _sol.AIPathRadius;
+        this._isShootableType = _sol.IsShootableType;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        if(_isShootableType)
+        {
+            _sb.enabled = true;
+        }
     }
 }

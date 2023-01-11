@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061983870384047895}
+  - component: {fileID: 2501147064233502575}
   - component: {fileID: 7524771402262182311}
   - component: {fileID: 5728371254604187281}
   - component: {fileID: 7431721756580407242}
@@ -36,6 +37,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2501147064233502575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8217083622364393433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2c3e8451d8cfb4abdb8b4307ed5cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eso:
+  - {fileID: 11400000, guid: d2fbcfd87a2e1e2429fa6fb4b2c7f1a7, type: 2}
+  Health: 0
+  Damage: 0
+  Speed: 0
+  AIPathRadius: 0
+  Score: 0
+  IsShootableType: 0
+  Sprite: {fileID: 0}
+  AnimatorController: {fileID: 0}
 --- !u!114 &7524771402262182311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,8 +71,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09a295a22b79514d9609d1c0cd50009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eso:
-  - {fileID: 11400000, guid: d2fbcfd87a2e1e2429fa6fb4b2c7f1a7, type: 2}
   damage: 10
 --- !u!114 &5728371254604187281
 MonoBehaviour:
