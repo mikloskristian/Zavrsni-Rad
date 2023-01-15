@@ -46,7 +46,8 @@ public class PlayerAiming : MonoBehaviour
         _rotation = Quaternion.Euler(0, 0, IEA.lookAngle);
         if(IEA.leftClick)
         {
-            Instantiate(_bullet, transform.localPosition, _rotation);
+            GameObject go = Instantiate(_bullet, transform.localPosition, _rotation);
+            go.gameObject.tag = "Player";
         }
     }
 }

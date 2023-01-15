@@ -25,6 +25,4 @@ public class handleEnemySpawning : MonoBehaviour
             Instantiate(enemy[randEnemy], spawnPoints[randSpawn].position + new Vector3(0, 0, 10), transform.localRotation);
         }
     }
-    //Uzet randEnemy i randSpawn i max value stavit u posebnu varijablu, napravit timer kad kucne timer da se spawna sljedeci wave, povezat sa managerom
-    //Prije ovoga samo health i highscore napravis, 5 min posla samo spawn i imenuj
 }

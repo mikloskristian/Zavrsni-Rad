@@ -5,15 +5,18 @@ using Pathfinding;
 
 public class EnemyBehaviourGetter : MonoBehaviour
 {
+    private GameObject _player;
     private AIPath _path;
     private bool _isShootableType;
     private ScriptableObjectLoader _sol;
     private ShootingBehaviour _sb;
     void Start()
     {
+        _player = GameObject.Find("Player");
+
         _path = GetComponent<AIPath>();
         _sol = GetComponent<ScriptableObjectLoader>();
-        _sb = GetComponent<ShootingBehaviour>();
+        _sb = GetComponentInChildren<ShootingBehaviour>();
 
 
         this._sb.enabled = false;
@@ -26,5 +29,9 @@ public class EnemyBehaviourGetter : MonoBehaviour
         {
             _sb.enabled = true;
         }
+    }
+
+    void Update() {
+        this._path.destination = _player.transform.position;
     }
 }

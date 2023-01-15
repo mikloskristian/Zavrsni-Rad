@@ -15,7 +15,7 @@ public class ScriptableObjectLoader : MonoBehaviour
     [HideInInspector] public Sprite Sprite;
     [HideInInspector] public AnimatorController AnimatorController; 
 
-    void Start()
+    void Awake()
     {
         int rnd = Random.Range(0, _eso.Length);
         this.Health = _eso[rnd].Health;

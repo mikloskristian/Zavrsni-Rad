@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f8ccb3dba05c045903f4d8370c18d8, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  Sprite: {fileID: -7385789195546760866, guid: 3a56f0ec8a910874b8cbba7e9d4814b0, type: 3}
-  AnimatorController: {fileID: 9100000, guid: 3fd5f54ca7e356345aeaf5837cd8e8d7, type: 2}
-  Speed: 5
   Health: 10
   Damage: 1
-  IsShooting: 0
+  Speed: 5
   AIPathRadius: 0
   Score: 0
+  IsShootableType: 0
+  Sprite: {fileID: -7385789195546760866, guid: 3a56f0ec8a910874b8cbba7e9d4814b0, type: 3}
+  AnimatorController: {fileID: 9100000, guid: 3fd5f54ca7e356345aeaf5837cd8e8d7, type: 2}

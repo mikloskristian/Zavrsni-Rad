@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20f8ccb3dba05c045903f4d8370c18d8, type: 3}
-  m_Name: Flying Skull
+  m_Name: Bat
   m_EditorClassIdentifier: 
-  Health: 2
-  Damage: 3
-  Speed: 2.5
-  AIPathRadius: 2
+  Health: 1
+  Damage: 1
+  Speed: 6
+  AIPathRadius: 0
   Score: 0
-  IsShootableType: 1
-  Sprite: {fileID: -1637492292, guid: 080e92f4d75837f45bd1ef6c8e3d12d1, type: 3}
+  IsShootableType: 0
+  Sprite: {fileID: 2129977301182375049, guid: b438465a32eb63243a7889eb1f400d29, type: 3}
   AnimatorController: {fileID: 0}

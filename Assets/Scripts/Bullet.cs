@@ -6,10 +6,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed;
 
-    void Start(){
-
-    }
-
     void Update()
     {
         handleSpeed();

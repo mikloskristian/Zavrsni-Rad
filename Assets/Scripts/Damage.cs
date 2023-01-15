@@ -9,7 +9,6 @@ public class Damage : MonoBehaviour
 
     private void Start() {
         _sol = GetComponent<ScriptableObjectLoader>();
-
         this.damage = _sol.Damage;
     }
 }
