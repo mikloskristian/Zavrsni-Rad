@@ -16,7 +16,7 @@ MonoBehaviour:
   Damage: 3
   Speed: 2.5
   AIPathRadius: 2
-  Score: 0
+  Score: 3
   IsShootableType: 1
   Sprite: {fileID: -1637492292, guid: 080e92f4d75837f45bd1ef6c8e3d12d1, type: 3}
   AnimatorController: {fileID: 0}

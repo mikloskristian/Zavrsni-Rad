@@ -32,6 +32,9 @@ public class EnemyBehaviourGetter : MonoBehaviour
     }
 
     void Update() {
-        this._path.destination = _player.transform.position;
+        if(_player != null)
+        {
+            this._path.destination = _player.transform.position;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public sealed class ScoreManager
@@ -21,26 +22,17 @@ public sealed class ScoreManager
                 if(instance == null)
                 {
                     instance = new ScoreManager();
-                    Debug.Log("Napravio sam se");
                 }
                 return instance;
             }
         }
     }
-    [HideInInspector] public int Score;
-    [HideInInspector] public int EnemyAmmount;
-    [HideInInspector] public float SpawnerTimer;
-
-    public void Awake()
-    {
-        Score = 0;
-    }
+    [HideInInspector] public float Score;
 
     private void Update() {
         
     }
-
-    public void AddScore(int value, TMP_Text ScoreText)
+    public void AddScore(float value, TMP_Text ScoreText)
     {
         Score += value;
         ScoreText.text = Score.ToString();

@@ -9,11 +9,12 @@ public class Health : MonoBehaviour
     private ScriptableObjectLoader _sol;
     private TriggerEnter _te;
     public HealthbarEvent HE;
-    private float _health;
-    void Start()
-    {
-        this._sol = GetComponent<ScriptableObjectLoader>();
-
+    public ScoreEvent SE;
+    public float ObjectHealth;
+    public float EnemyScore;
+    private float _score;
+    private bool _isDead;
+    private void Awake() {
         if(_te == null)
         {
             _te = GetComponent<TriggerEnter>();
@@ -22,22 +23,41 @@ public class Health : MonoBehaviour
         {
             HE = new HealthbarEvent();
         }
+        if(SE == null)
+        {
+            SE = new ScoreEvent();
+        }
+    }
+    void Start()
+    {
+        this._sol = GetComponent<ScriptableObjectLoader>();
+
         _te.DE.AddListener(onChange);
 
-        this._health = _sol.Health;
+        this.ObjectHealth = _sol.Health;
+        this._score = _sol.Score;
+        this._isDead = false;
+        HE.Invoke(ObjectHealth);
     }
 
     void onChange(Damage damage){
-        _health -= damage.damage;
+        ObjectHealth -= damage.damage;
         if(gameObject.tag == "Player")
         {
-            HE.Invoke(_health);
+            HE.Invoke(ObjectHealth);
+            //Works if i put SE.Invoke here
         }
-        if(_health <= 0)
+        if(ObjectHealth <= 0)
         {
+            SE.Invoke(EnemyScore); //doesn't work here :/
+            if(gameObject.tag == "Enemy")
+            {
+                EnemyScore = gameObject.GetComponent<Health>()._score;
+            }
             Destroy(gameObject);
         }
     }
 }
 [System.Serializable]
+public class ScoreEvent : UnityEvent<float>{}
 public class HealthbarEvent : UnityEvent<float>{}

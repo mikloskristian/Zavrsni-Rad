@@ -22,24 +22,18 @@ public class HealthManager
                 if(instance == null)
                 {
                     instance = new HealthManager();
-                    Debug.Log("Napravio sam se");
                 }
                 return instance;
             }
         }
     }
-
-    public void Awake()
-    {
-    }
-    public void SetStartingHealth(float value, Slider healthSlider)
+    public void SetHealthValue(float value, Slider healthSlider)
     {
         healthSlider.maxValue = value;
-        healthSlider.value = value; 
     }
 
-    public void RemoveHealthOnSlider(float value, Slider healthSlider)
+    public void RemoveHealthValue(float value, Slider healthSlider)
     {
-        healthSlider.value -= value;
+        healthSlider.value = value;
     }
 }

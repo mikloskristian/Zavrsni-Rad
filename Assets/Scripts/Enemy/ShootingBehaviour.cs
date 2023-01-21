@@ -31,10 +31,13 @@ public class ShootingBehaviour : MonoBehaviour
 
     private void handleRotation()
     {
-        _playerCoordinates = _player.transform.position;
-        _lookPosition = _playerCoordinates - _rb.position;
-        _lookAngle = Mathf.Atan2(_lookPosition.y, _lookPosition.x) * Mathf.Rad2Deg;
-        _rb.rotation = _lookAngle;
+        if(_player != null)
+        {
+            _playerCoordinates = _player.transform.position;
+            _lookPosition = _playerCoordinates - _rb.position;
+            _lookAngle = Mathf.Atan2(_lookPosition.y, _lookPosition.x) * Mathf.Rad2Deg;
+            _rb.rotation = _lookAngle;
+        }
     }
 
     private void handleShooting()
