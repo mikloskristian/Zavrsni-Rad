@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEditor.Animations;
 using UnityEditor;
 
-public class SpriteGetter : MonoBehaviour
+public class SpriteGetter : MonoBehaviour, IPooledObject
 {
     [HideInInspector] public SpriteRenderer Sprite;
     [HideInInspector] public Animator Animator;
     private ScriptableObjectLoader _sol;
-    void Start()
+    public void OnObjectSpawn()
     {
         this._sol = GetComponent<ScriptableObjectLoader>();
         this.Sprite = GetComponent<SpriteRenderer>();
@@ -19,8 +19,8 @@ public class SpriteGetter : MonoBehaviour
         Animator.runtimeAnimatorController = _sol.AnimatorController;
     }
 
-    void Update()
+    void Start()
     {
-        
+        OnObjectSpawn();
     }
 }

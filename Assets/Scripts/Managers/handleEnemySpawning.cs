@@ -5,12 +5,13 @@ using UnityEngine;
 public class handleEnemySpawning : MonoBehaviour
 {
     [SerializeField] Transform[] spawnPoints;
-    [SerializeField] GameObject[] enemy;
     [HideInInspector] public int WaveEnemyAmmount = 3;
+    private ObjectPooler _objectPooler;
 
     void Start()
     {
-        enemySpawn();
+        _objectPooler = ObjectPooler.Instance;
+        InvokeRepeating("enemySpawn", 2.0f, 4.0f);
     }
 
     void Update()
@@ -20,9 +21,8 @@ public class handleEnemySpawning : MonoBehaviour
 
     void enemySpawn(){ 
         for (int i = 0; i < 4; i++){
-            int randEnemy = Random.Range(0, enemy.Length);
             int randSpawn = Random.Range(0, spawnPoints.Length);
-            Instantiate(enemy[randEnemy], spawnPoints[randSpawn].position + new Vector3(0, 0, 10), transform.localRotation);
+            _objectPooler.SpawnFromPool("Enemy", spawnPoints[randSpawn].position + new Vector3(0, 0, 10.0f), Quaternion.identity);
         }
     }
 }

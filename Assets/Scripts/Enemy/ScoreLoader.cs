@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class ScoreLoader : MonoBehaviour
 {
+    public static ScoreLoader Instance;
     private TMP_Text _tekst;
-    private GameObject _player;
+    private GameObject _enemy;
     private Health _h;
+    [HideInInspector] public float TotalScore;
     void Awake() {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
         _tekst = GetComponent<TMP_Text>();    
     }
     void Start()
     {
-        _player = GameObject.Find("Player");
-        _h = _player.GetComponent<Health>();
-        _h.SE.AddListener(updateScore);
+        TotalScore = 0.0f;
         _tekst.text = "0";
     }
     void Update()
@@ -23,8 +28,9 @@ public class ScoreLoader : MonoBehaviour
 
     }
 
-    void updateScore(float score)
+    public void updateScore(float score)
     {
-        Debug.Log("Primio sam ga. Jako");
+        TotalScore += score;
+        _tekst.text = TotalScore.ToString();
     }
 }
