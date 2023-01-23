@@ -17,6 +17,7 @@ public class SpriteGetter : MonoBehaviour, IPooledObject
 
         Sprite.sprite = _sol.Sprite;
         Animator.runtimeAnimatorController = _sol.AnimatorController;
+        Animator.Rebind();
     }
 
     void Start()

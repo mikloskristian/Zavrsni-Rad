@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     private ScriptableObjectLoader _sol;
     private TriggerEnter _te;
     public HealthbarEvent HE;
+    private Animator _animator;
     [HideInInspector] public float ObjectHealth;
     [HideInInspector] public float EnemyScore;
     private float _score;
@@ -25,6 +26,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         this._sol = GetComponent<ScriptableObjectLoader>();
+        this._animator = GetComponent<Animator>();
 
         _te.DE.AddListener(onChange);
 
@@ -48,6 +50,7 @@ public class Health : MonoBehaviour
             }
             gameObject.SetActive(false);
         }
+        
     }
 }
 [System.Serializable]

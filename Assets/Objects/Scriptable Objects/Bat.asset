@@ -19,4 +19,4 @@ MonoBehaviour:
   Score: 2
   IsShootableType: 0
   Sprite: {fileID: 2129977301182375049, guid: b438465a32eb63243a7889eb1f400d29, type: 3}
-  AnimatorController: {fileID: 0}
+  AnimatorController: {fileID: 9100000, guid: 3a5c01dd53593fd4087b519eaee26066, type: 2}

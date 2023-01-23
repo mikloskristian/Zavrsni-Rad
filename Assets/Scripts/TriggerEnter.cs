@@ -11,6 +11,7 @@ public class TriggerEnter : MonoBehaviour
         if (DE == null){
             DE = new DamageEvent();
         }
+
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {

@@ -10,13 +10,15 @@ public class EnemyBehaviourGetter : MonoBehaviour
     private bool _isShootableType;
     private ScriptableObjectLoader _sol;
     private ShootingBehaviour _sb;
+    private SpriteRenderer _sr;
     void Start()
     {
         _player = GameObject.Find("Player");
 
-        _path = GetComponent<AIPath>();
-        _sol = GetComponent<ScriptableObjectLoader>();
-        _sb = GetComponentInChildren<ShootingBehaviour>();
+        this._path = GetComponent<AIPath>();
+        this._sol = GetComponent<ScriptableObjectLoader>();
+        this._sb = GetComponentInChildren<ShootingBehaviour>();
+        this._sr = GetComponent<SpriteRenderer>();
 
 
         this._sb.enabled = false;
@@ -35,6 +37,11 @@ public class EnemyBehaviourGetter : MonoBehaviour
         if(_player != null)
         {
             this._path.destination = _player.transform.position;
+            if(_path.desiredVelocity.x <= 0.01f)
+            {
+                this._sr.flipX = true;
+            }
+            else {this._sr.flipX = false;}
         }
     }
 }
