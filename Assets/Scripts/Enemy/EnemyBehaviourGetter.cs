@@ -8,13 +8,16 @@ public class EnemyBehaviourGetter : MonoBehaviour
     private GameObject _player;
     private AIPath _path;
     private bool _isShootableType;
+    private bool _isDead = false;
     private ScriptableObjectLoader _sol;
     private ShootingBehaviour _sb;
     private SpriteRenderer _sr;
+    private Health _health;
     void Start()
     {
-        _player = GameObject.Find("Player");
+        this._player = GameObject.Find("Player");
 
+        this._health = GetComponent<Health>();
         this._path = GetComponent<AIPath>();
         this._sol = GetComponent<ScriptableObjectLoader>();
         this._sb = GetComponentInChildren<ShootingBehaviour>();
@@ -26,6 +29,8 @@ public class EnemyBehaviourGetter : MonoBehaviour
         this._path.radius = _sol.AIPathRadius;
         this._isShootableType = _sol.IsShootableType;
 
+        this._health.DE.AddListener(handleDeath);
+
 
         if(_isShootableType)
         {
@@ -34,14 +39,23 @@ public class EnemyBehaviourGetter : MonoBehaviour
     }
 
     void Update() {
-        if(_player != null)
+        if(_isDead){this._path.enabled = false; return;}
+        else
         {
-            this._path.destination = _player.transform.position;
-            if(_path.desiredVelocity.x <= 0.01f)
+            if(_player != null)
             {
-                this._sr.flipX = true;
+                this._path.destination = _player.transform.position;
+                if(_path.desiredVelocity.x <= 0.01f)
+                {
+                    this._sr.flipX = true;
+                }
+                else {this._sr.flipX = false;}
             }
-            else {this._sr.flipX = false;}
         }
+    }
+
+    private void handleDeath(bool isDead)
+    {
+        this._isDead = isDead;
     }
 }

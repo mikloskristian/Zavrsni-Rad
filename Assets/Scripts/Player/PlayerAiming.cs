@@ -7,22 +7,23 @@ public class PlayerAiming : MonoBehaviour
     [SerializeField] private GameObject _bullet;
     private GameObject _shootingAim;
     private PCInput PCI;
+    private Health _health;
     private SpriteRenderer _sr;
     private Quaternion _rotation;
     private Rigidbody2D _rb;
+    private bool _isDead;
     void Start()
     {
-        if(PCI == null)
-        {
-            PCI = GetComponent<PCInput>();
-        }
-        PCI.IE.AddListener(handleLook);
-        PCI.IE.AddListener(handleShoot);
-
-        _shootingAim = GameObject.Find("Player Shooting Rotation");
+        this._shootingAim = GameObject.Find("Player Shooting Rotation");
         
-        _rb = _shootingAim.GetComponent<Rigidbody2D>();
-        _sr = GetComponent<SpriteRenderer>();
+        this._rb = _shootingAim.GetComponent<Rigidbody2D>();
+        this._sr = GetComponent<SpriteRenderer>();
+        this._health = GetComponent<Health>();
+        this.PCI = GetComponent<PCInput>();
+
+        this.PCI.IE.AddListener(handleLook);
+        this.PCI.IE.AddListener(handleShoot);
+        this._health.DE.AddListener(handleDeath);
     }
 
     void Update()
@@ -43,11 +44,19 @@ public class PlayerAiming : MonoBehaviour
     }
     private void handleShoot(InputEventArgs IEA)
     {
-        _rotation = Quaternion.Euler(0, 0, IEA.lookAngle);
-        if(IEA.leftClick)
+        if(_isDead){return;}
+        else
         {
-            GameObject go = Instantiate(_bullet, transform.localPosition, _rotation);
-            go.gameObject.tag = "Player";
+            _rotation = Quaternion.Euler(0, 0, IEA.lookAngle);
+            if(IEA.leftClick)
+            {
+                GameObject go = Instantiate(_bullet, transform.localPosition, _rotation);
+                go.gameObject.tag = "Player";
+            }
         }
+    }
+    private void handleDeath(bool isDead)
+    {
+        this._isDead = isDead;
     }
 }

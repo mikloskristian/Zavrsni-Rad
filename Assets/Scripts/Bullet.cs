@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] float bulletSpeed;
     private float _duration = 0;
     private Animator _animator;
+    private Health _health;
+    private bool _isDead;
     private void Start() {
         this._animator = GetComponent<Animator>();
         this._animator.Rebind();
