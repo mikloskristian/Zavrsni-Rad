@@ -32,7 +32,6 @@ public class TriggerEnter : MonoBehaviour
     private void handleDeath(bool isDead)
     {
         this._isDead = isDead;
-        Debug.Log(_isDead);
     }
 }
 

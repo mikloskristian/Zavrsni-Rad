@@ -16,6 +16,7 @@ public class Healthbar : MonoBehaviour
         _player = GameObject.Find("Player");
         _h = _player.GetComponent<Health>();
         _h.HE.AddListener(getHealth); 
+        _h.DE.AddListener(handleDeath);
         _slider.maxValue = 10.0f;
         _slider.value = 10.0f;
     }
@@ -33,5 +34,9 @@ public class Healthbar : MonoBehaviour
     {
         _health = _h.ObjectHealth;
         HealthManager.Instance.RemoveHealthValue(_health, _slider);
+    }
+    private void handleDeath(bool isDead)
+    {
+        _slider.value = 0;
     }
 }

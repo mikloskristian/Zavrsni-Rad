@@ -11,6 +11,7 @@ public class PCInput : MonoBehaviour
     private float _moveY;
     private float _lookAngle;
     private bool _leftClick;
+    private bool _r;
     private Vector2 _mouseCoordinates;
     private Vector2 _lookPosition;
     private Rigidbody2D _rb;
@@ -28,12 +29,13 @@ public class PCInput : MonoBehaviour
         _moveX = Input.GetAxis("Horizontal");
         _moveY = Input.GetAxis("Vertical");
         _leftClick = Input.GetKeyDown(KeyCode.Mouse0);
+        _r = Input.GetKeyDown(KeyCode.R);
 
         _mouseCoordinates = _camera.ScreenToWorldPoint(Input.mousePosition);
         _lookPosition = _mouseCoordinates - _rb.position;
         _lookAngle = Mathf.Atan2(_lookPosition.y, _lookPosition.x) * Mathf.Rad2Deg;
         
-        IE.Invoke(new InputEventArgs(_moveX, _moveY, _lookAngle, _lookPosition, _leftClick));
+        IE.Invoke(new InputEventArgs(_moveX, _moveY, _lookAngle, _lookPosition, _leftClick, _r));
     }
 }
 [System.Serializable]
@@ -45,12 +47,14 @@ public struct InputEventArgs
     public float lookAngle;
     public float flipX;
     public bool leftClick;
-    public InputEventArgs(float x, float y, float lookAngle, Vector2 lookX, bool leftClick)
+    public bool r;
+    public InputEventArgs(float x, float y, float lookAngle, Vector2 lookX, bool leftClick, bool r)
     {
         this.x = x;
         this.y = y;
         this.lookAngle = lookAngle;
         this.flipX = lookX.x;
         this.leftClick = leftClick;
+        this.r = r;
     }
 }
